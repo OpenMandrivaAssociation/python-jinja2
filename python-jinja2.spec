@@ -1,6 +1,6 @@
 %define tarname Jinja2
 %define name	python-jinja2
-%define version 2.2.1
+%define version 2.3
 %define release %mkrel 1
 
 Summary:	Python template engine
@@ -8,7 +8,7 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Source0:	%{tarname}-%{version}.tar.gz
-Source1:	html.tar.gz
+Source1:	html.tar.bz2
 License:	BSD
 Group:		Development/Python
 Url:		http://jinja.pocoo.org/
@@ -26,7 +26,7 @@ useful for templating environments.
 
 %prep
 %setup -q -n %{tarname}-%{version}
-tar pzxf %SOURCE1 
+tar pjxf %SOURCE1 
 
 %build
 %__python setup.py --with-speedups build 
@@ -40,4 +40,4 @@ tar pzxf %SOURCE1
 
 %files -f FILELIST
 %defattr(-,root,root)
-%doc AUTHORS CHANGES LICENSE TODO examples html
+%doc AUTHORS CHANGES LICENSE examples html
