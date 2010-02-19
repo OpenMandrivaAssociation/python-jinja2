@@ -1,6 +1,6 @@
 %define tarname Jinja2
 %define name	python-jinja2
-%define version 2.3
+%define version 2.3.1
 %define release %mkrel 1
 
 Summary:	Python template engine
