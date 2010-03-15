@@ -1,7 +1,7 @@
 %define tarname Jinja2
 %define name	python-jinja2
 %define version 2.3.1
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:	Python template engine
 Name:		%{name}
@@ -13,6 +13,7 @@ License:	BSD
 Group:		Development/Python
 Url:		http://jinja.pocoo.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Obsoletes:	python-jinja
 Requires:	python >= 2.4
 BuildRequires:	python-devel >= 2.4, python-setuptools
 
