@@ -1,7 +1,7 @@
 %define tarname Jinja2
 %define name	python-jinja2
-%define version 2.3.1
-%define release %mkrel 2
+%define version 2.4.1
+%define release %mkrel 1
 
 Summary:	Python template engine
 Name:		%{name}
@@ -34,7 +34,7 @@ tar pjxf %SOURCE1
 
 %install
 %__rm -rf %{buildroot}
-%__python setup.py --with-speedups install --root=%{buildroot} --record=FILELIST
+PYTHONDONTWRITEBYTECODE= %__python setup.py --with-speedups install --root=%{buildroot} --record=FILELIST
 
 %clean
 %__rm -rf %{buildroot}
