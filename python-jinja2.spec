@@ -1,6 +1,6 @@
 %define tarname Jinja2
 %define name	python-jinja2
-%define version 2.5
+%define version 2.5.1
 %define release %mkrel 1
 
 Summary:	Python template engine
@@ -13,8 +13,10 @@ License:	BSD
 Group:		Development/Python
 Url:		http://jinja.pocoo.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildArch:	noarch
 Obsoletes:	python-jinja
 Requires:	python >= 2.4
+Suggests:	python-markupsafe
 BuildRequires:	python-devel >= 2.4, python-setuptools
 
 %description
@@ -30,15 +32,15 @@ useful for templating environments.
 tar pjxf %SOURCE1 
 
 %build
-%__python setup.py --with-speedups build 
+PYTHONDONTWRITEBYTECODE= %__python setup.py build 
 
 %install
 %__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py --with-speedups install --root=%{buildroot} --record=FILELIST
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
 
 %clean
 %__rm -rf %{buildroot}
 
-%files -f FILELIST
+%files -f FILE_LIST
 %defattr(-,root,root)
 %doc AUTHORS CHANGES LICENSE examples html
