@@ -1,6 +1,6 @@
 %define tarname Jinja2
 %define name	python-jinja2
-%define version 2.5.2
+%define version 2.5.4
 %define release %mkrel 1
 
 Summary:	Python template engine
@@ -8,7 +8,6 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Source0:	%{tarname}-%{version}.tar.gz
-Source1:	html.tar.bz2
 License:	BSD
 Group:		Development/Python
 Url:		http://jinja.pocoo.org/
@@ -18,6 +17,7 @@ Obsoletes:	python-jinja
 Requires:	python >= 2.4
 Suggests:	python-markupsafe
 BuildRequires:	python-devel >= 2.4, python-setuptools
+BuildRequires:	python-sphinx
 
 %description
 Jinja2 is a library for Python 2.4 and onwards that is designed to be
@@ -29,18 +29,22 @@ useful for templating environments.
 
 %prep
 %setup -q -n %{tarname}-%{version}
-tar pjxf %SOURCE1 
 
 %build
 PYTHONDONTWRITEBYTECODE= %__python setup.py build 
+%make -C docs html
 
 %install
 %__rm -rf %{buildroot}
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
+%__rm -rf docs/_build/html/.buildinfo
+
+%check
+make test
 
 %clean
 %__rm -rf %{buildroot}
 
 %files -f FILE_LIST
 %defattr(-,root,root)
-%doc AUTHORS CHANGES LICENSE examples html
+%doc AUTHORS CHANGES LICENSE examples docs/_build/html
