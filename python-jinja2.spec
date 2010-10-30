@@ -3,6 +3,9 @@
 %define version 2.5.5
 %define release %mkrel 2
 
+# jinja requires itself ( as python-sphinx use it ) to build doc
+%define enable_doc 0
+
 Summary:	Python template engine
 Name:		%{name}
 Version:	%{version}
@@ -17,7 +20,9 @@ Obsoletes:	python-jinja
 Requires:	python >= 2.4
 Suggests:	python-markupsafe
 BuildRequires:	python-devel >= 2.4, python-setuptools
+%if %enable_doc
 BuildRequires:	python-sphinx
+%endif
 
 %description
 Jinja2 is a library for Python 2.4 and onwards that is designed to be
@@ -32,7 +37,9 @@ useful for templating environments.
 
 %build
 PYTHONDONTWRITEBYTECODE= %__python setup.py build 
+%if %enable_doc
 %make -C docs html
+%endif
 
 %install
 %__rm -rf %{buildroot}
@@ -47,4 +54,7 @@ make test
 
 %files -f FILE_LIST
 %defattr(-,root,root)
-%doc AUTHORS CHANGES LICENSE examples docs/_build/html
+%doc AUTHORS CHANGES LICENSE examples 
+%if %enable_doc
+%doc docs/_build/html
+%endif
