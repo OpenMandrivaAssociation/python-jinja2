@@ -1,10 +1,10 @@
 %define tarname Jinja2
 %define name	python-jinja2
 %define version 2.5.5
-%define release %mkrel 2
+%define release %mkrel 3
 
 # jinja requires itself ( as python-sphinx use it ) to build doc
-%define enable_doc 0
+%define enable_doc 1
 
 Summary:	Python template engine
 Name:		%{name}
