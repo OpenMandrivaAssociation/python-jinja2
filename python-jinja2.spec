@@ -4,7 +4,7 @@
 %define release %mkrel 4
 
 # jinja requires itself ( as python-sphinx use it ) to build doc
-%define enable_doc 1
+%define enable_doc 0
 
 Summary:	Python template engine
 Name:		%{name}
