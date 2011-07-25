@@ -1,7 +1,7 @@
 %define tarname Jinja2
 %define name	python-jinja2
-%define version 2.5.5
-%define release %mkrel 5
+%define version 2.6
+%define release %mkrel 1
 
 # jinja requires itself ( as python-sphinx use it ) to build doc
 %define enable_doc 0
