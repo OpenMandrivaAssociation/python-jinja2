@@ -16,7 +16,7 @@ BuildArch:	noarch
 Obsoletes:	python-jinja
 Requires:	python >= 2.4
 Suggests:	python-markupsafe
-BuildRequires:	python-devel >= 2.4, python-setuptools, python3-devel, python3egg(setuptools)
+BuildRequires:	python-devel >= 2.4, python-setuptools, python3-devel, python3-dsitribute
 BuildRequires:  python-markupsafe, python3-markupsafe
 %if %enable_doc
 BuildRequires:	python-sphinx
