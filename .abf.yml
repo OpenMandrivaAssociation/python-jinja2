@@ -1,2 +1,4 @@
+removed_sources:
+  Jinja2-2.6.tar.gz: f122aeb324b2009bbcee341d0f001a047ac4bbe5
 sources:
-  "Jinja2-2.6.tar.gz": f122aeb324b2009bbcee341d0f001a047ac4bbe5
+  Jinja2-2.7.1.tar.gz: a9b24d887f2be772921b3ee30a0b9d435cffadda

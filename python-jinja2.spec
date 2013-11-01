@@ -6,9 +6,9 @@
 
 Summary:	Python template engine
 Name:		python-jinja2
-Version:	2.6
-Release:	3
-Source0:	%{tarname}-%{version}.tar.gz
+Version:	2.7.1
+Release:	1
+Source0:	https://pypi.python.org/packages/source/J/Jinja2/Jinja2-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
 Url:		http://jinja.pocoo.org/
@@ -16,7 +16,8 @@ BuildArch:	noarch
 Obsoletes:	python-jinja
 Requires:	python >= 2.4
 Suggests:	python-markupsafe
-BuildRequires:	python-devel >= 2.4, python-setuptools, python3-devel, python3-distribute
+BuildRequires:	python-devel >= 2.4, python-setuptools, python3-devel, python3egg(setuptools)
+BuildRequires:  python-markupsafe, python3-markupsafe
 %if %enable_doc
 BuildRequires:	python-sphinx
 %endif
@@ -96,3 +97,4 @@ popd
 %if %enable_doc
 %doc python3/docs/_build/html
 %endif
+
