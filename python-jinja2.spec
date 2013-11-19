@@ -8,19 +8,20 @@ Summary:	Python template engine
 Name:		python-jinja2
 Version:	2.7.1
 Release:	1
-Source0:	https://pypi.python.org/packages/source/J/Jinja2/Jinja2-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
 Url:		http://jinja.pocoo.org/
+Source0:	https://pypi.python.org/packages/source/J/Jinja2/Jinja2-%{version}.tar.gz
 BuildArch:	noarch
-Obsoletes:	python-jinja
-Requires:	python >= 2.4
-Suggests:	python-markupsafe
 BuildRequires:	python-devel >= 2.4, python-setuptools, python3-devel, python3-distribute
-BuildRequires:  python-markupsafe, python3-markupsafe
+BuildRequires:	python-markupsafe
+BuildRequires:	python3-markupsafe
 %if %enable_doc
 BuildRequires:	python-sphinx
 %endif
+Requires:	python >= 2.4
+Obsoletes:	python-jinja
+Suggests:	python-markupsafe
 
 %description
 Jinja2 is a library for Python 2.4 and onwards that is designed to be
@@ -31,9 +32,9 @@ friendly by sticking to Python's principles and adding functionality
 useful for templating environments.
 
 %package -n python3-jinja2
-Summary:        Python template engine
-Group:          Development/Python
-Requires:       python3
+Summary:	Python template engine
+Group:		Development/Python
+Requires:	python3
  
 %description -n python3-jinja2
 Jinja2 is a library for Python 2.4 and onwards that is designed to be
@@ -64,7 +65,7 @@ PYTHONDONTWRITEBYTECODE=  python3 setup.py build
 %endif
 popd
 
-%check                                                                                                                                                                                                        
+%check
 pushd python2
 make test 
 popd
