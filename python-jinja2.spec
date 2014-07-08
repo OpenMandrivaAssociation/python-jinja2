@@ -15,7 +15,6 @@ Source0:	https://pypi.python.org/packages/source/J/Jinja2/Jinja2-%{version}.tar.
 BuildArch:	noarch
 BuildRequires:	python-devel >= 2.4, python-setuptools, python3-devel, python3-distribute
 BuildRequires:	python-markupsafe
-BuildRequires:	python3-markupsafe
 %if %{with doc}
 BuildRequires:	python-sphinx
 %endif
@@ -36,6 +35,9 @@ useful for templating environments.
 Summary:	Python template engine
 Group:		Development/Python
 Requires:	python2 >= 2.4
+BuildRequires:	pkgconfig(python2)
+BuildRequires:	python2-markupsafe
+BuildRequires:	python2-distribute
  
 %description -n python2-jinja2
 Jinja2 is a library for Python 2.4 and onwards that is designed to be
