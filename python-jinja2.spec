@@ -7,7 +7,7 @@
 Summary:	Python template engine
 Name:		python-jinja2
 Version:	2.7.3
-Release:	3
+Release:	4
 License:	BSD
 Group:		Development/Python
 Url:		http://jinja.pocoo.org/
