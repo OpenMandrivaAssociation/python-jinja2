@@ -6,7 +6,7 @@
 
 Summary:	Python template engine
 Name:		python-jinja2
-Version:	2.9.6
+Version:	2.10
 Release:	1
 License:	BSD
 Group:		Development/Python
@@ -90,7 +90,7 @@ python setup.py install --root=%{buildroot}
 popd
 
 %files -n python-jinja2 
-%doc python2/AUTHORS python2/CHANGES python2/LICENSE python2/examples
+%doc python2/AUTHORS python2/LICENSE python2/examples
 %{py_puresitedir}/%{fname}/*
 %{py_puresitedir}/%{tarname}-%{version}-py%{py_ver}.egg-info
 %if %{with doc}
@@ -98,7 +98,7 @@ popd
 %endif
 
 %files -n python2-jinja2
-%doc python2/AUTHORS python2/CHANGES python2/LICENSE python2/examples
+%doc python2/AUTHORS python2/LICENSE python2/examples
 %{py2_puresitedir}/%{fname}/*
 %{py2_puresitedir}/%{tarname}-%{version}-py%{py2_ver}.egg-info
 %if %{with doc}
