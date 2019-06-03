@@ -6,14 +6,17 @@
 
 Summary:	Python template engine
 Name:		python-jinja2
-Version:	2.10
-Release:	2
+Version:	2.10.1
+Release:	1
 License:	BSD
 Group:		Development/Python
 Url:		http://jinja.pocoo.org/
-Source0:	https://github.com/pallets/jinja/archive/%{version}.tar.gz
+Source0:	https://github.com/pallets/jinja/archive/%{fname}-%{version}.tar.gz
 BuildArch:	noarch
-BuildRequires:	python-devel >= 2.4, python-setuptools, python3-devel, python3-distribute
+BuildRequires:	pkgconfig(python2)
+BuildRequires:	python-setuptools
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python3-distribute
 BuildRequires:	python-markupsafe
 %if %{with doc}
 BuildRequires:	python-sphinx
@@ -54,42 +57,43 @@ mv jinja-%{version} python2
 cp -r python2 python3
 
 %build
-pushd python2
+%setup_compile_flags
+cd python2
 PYTHONDONTWRITEBYTECODE=  python2 setup.py build
 %if %{with doc}
-%make -C docs html
+%make_build -C docs html
 %endif
-popd
+cd -
 
-pushd python3
+cd python3
 PYTHONDONTWRITEBYTECODE=  python3 setup.py build
 %if %{with doc}
-%make -C docs html
+%make_build -C docs html
 %endif
-popd
+cd -
 
 %if 0
 # Broken in 2.8
 %check
-pushd python2
-make test 
-popd
+cd python2
+make test
+cd -
 
-pushd python3
-make test 
-popd
+cd python3
+make test
+cd -
 %endif
 
 %install
-pushd python2
+cd python2
 python2 setup.py install --root=%{buildroot}
-popd
+cd -
 
-pushd python3
+cd python3
 python setup.py install --root=%{buildroot}
-popd
+cd -
 
-%files -n python-jinja2 
+%files -n python-jinja2
 %doc python2/AUTHORS python2/LICENSE python2/examples
 %{py_puresitedir}/%{fname}/*
 %{py_puresitedir}/%{tarname}-%{version}-py%{py_ver}.egg-info
@@ -104,4 +108,3 @@ popd
 %if %{with doc}
 %doc python2/docs/_build/html
 %endif
-
