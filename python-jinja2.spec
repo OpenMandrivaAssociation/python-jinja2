@@ -2,16 +2,16 @@
 %define fname   jinja2
 
 # jinja requires itself ( as python-sphinx use it ) to build doc
-%bcond_with doc 1
+%bcond_with doc
 
 Summary:	Python template engine
 Name:		python-jinja2
-Version:	2.10.1
+Version:	2.10.3
 Release:	1
 License:	BSD
 Group:		Development/Python
 Url:		http://jinja.pocoo.org/
-Source0:	https://github.com/pallets/jinja/archive/%{fname}-%{version}.tar.gz
+Source0:	https://github.com/pallets/jinja/archive/%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python-setuptools
@@ -94,7 +94,7 @@ python setup.py install --root=%{buildroot}
 cd -
 
 %files -n python-jinja2
-%doc python2/AUTHORS python2/LICENSE python2/examples
+%doc python2/examples
 %{py_puresitedir}/%{fname}/*
 %{py_puresitedir}/%{tarname}-%{version}-py%{py_ver}.egg-info
 %if %{with doc}
@@ -102,7 +102,7 @@ cd -
 %endif
 
 %files -n python2-jinja2
-%doc python2/AUTHORS python2/LICENSE python2/examples
+%doc python2/examples
 %{py2_puresitedir}/%{fname}/*
 %{py2_puresitedir}/%{tarname}-%{version}-py%{py2_ver}.egg-info
 %if %{with doc}
