@@ -6,7 +6,7 @@
 
 Summary:	Python template engine
 Name:		python-jinja2
-Version:	2.10.3
+Version:	2.11.1
 Release:	1
 License:	BSD
 Group:		Development/Python
