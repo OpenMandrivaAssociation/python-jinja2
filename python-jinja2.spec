@@ -6,7 +6,7 @@
 
 Summary:	Python template engine
 Name:		python-jinja2
-Version:	2.11.1
+Version:	2.11.2
 Release:	1
 License:	BSD
 Group:		Development/Python
@@ -40,7 +40,7 @@ Group:		Development/Python
 Requires:	python2 >= 2.4
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-markupsafe
-BuildRequires:	python2-distribute
+BuildRequires:	python2-setuptools
  
 %description -n python2-jinja2
 Jinja2 is a library for Python 2.4 and onwards that is designed to be
