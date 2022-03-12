@@ -1,5 +1,5 @@
 %define tarname Jinja2
-%define fname   jinja2
+%define fname jinja2
 
 # jinja requires itself ( as python-sphinx use it ) to build doc
 %bcond_with doc
@@ -7,7 +7,7 @@
 Summary:	Python template engine
 Name:		python-jinja2
 Version:	3.0.3
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Python
 Url:		http://jinja.pocoo.org/
@@ -21,8 +21,8 @@ BuildRequires:	python-markupsafe
 BuildRequires:	python-sphinx
 %endif
 Requires:	python >= 3.0
-Obsoletes:	python-jinja
 Suggests:	python-markupsafe
+%rename python-jinja
 %rename python3-jinja2
 
 %description
@@ -38,13 +38,13 @@ useful for templating environments.
 
 %build
 %set_build_flags
-PYTHONDONTWRITEBYTECODE=  python3 setup.py build
+%py_build
 %if %{with doc}
 %make_build -C docs html
 %endif
 
 %install
-python setup.py install --root=%{buildroot}
+%py_install
 
 %files
 %doc examples
