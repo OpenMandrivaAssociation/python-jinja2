@@ -10,7 +10,7 @@ Version:	3.1.3
 Release:	1
 License:	BSD
 Group:		Development/Python
-Url:		http://jinja.pocoo.org/
+Url:		https://jinja.pocoo.org/
 Source0:	https://github.com/pallets/jinja/archive/%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	python-setuptools
