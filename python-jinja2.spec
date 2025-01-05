@@ -6,7 +6,7 @@
 
 Summary:	Python template engine
 Name:		python-jinja2
-Version:	3.1.3
+Version:	3.1.5
 Release:	1
 License:	BSD
 Group:		Development/Python
@@ -50,7 +50,7 @@ useful for templating environments.
 %doc examples
 %dir %{py_puresitedir}/%{fname}
 %{py_puresitedir}/%{fname}/*
-%{py_puresitedir}/%{tarname}-%{version}-py%{py_ver}.egg-info
+%{py_puresitedir}/%{fname}-%{version}.dist-info
 %if %{with doc}
 %doc docs/_build/html
 %endif
