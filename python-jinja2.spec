@@ -7,18 +7,17 @@
 Summary:	Python template engine
 Name:		python-jinja2
 Version:	3.1.6
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Python
-Url:		https://jinja.pocoo.org/
+Url:		https://jinja.palletsprojects.com/
 Source0:	https://github.com/pallets/jinja/archive/%{version}.tar.gz
 BuildArch:	noarch
-BuildRequires:	python-setuptools
-BuildRequires:	pkgconfig(python3)
-BuildRequires:	python3-distribute
-BuildRequires:	python-markupsafe
+BuildSystem:	python
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(markupsafe)
 %if %{with doc}
-BuildRequires:	python-sphinx
+BuildRequires:	python%{pyver}dist(sphinx)
 %endif
 Requires:	python >= 3.0
 Suggests:	python-markupsafe
@@ -33,18 +32,10 @@ feel right at home with Jinja2. It's both designer and developer
 friendly by sticking to Python's principles and adding functionality
 useful for templating environments.
 
-%prep
-%autosetup -p1 -n jinja-%{version}
-
-%build
-%set_build_flags
-%py_build
+%build -a
 %if %{with doc}
 %make_build -C docs html
 %endif
-
-%install
-%py_install
 
 %files
 %doc examples
