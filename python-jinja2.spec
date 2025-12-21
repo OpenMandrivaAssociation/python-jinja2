@@ -14,6 +14,7 @@ Url:		https://jinja.palletsprojects.com/
 Source0:	https://github.com/pallets/jinja/archive/%{version}.tar.gz
 BuildArch:	noarch
 BuildSystem:	python
+BuildRequires:	make
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(markupsafe)
 %if %{with doc}
